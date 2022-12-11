@@ -1,14 +1,16 @@
-const btnSelect = document.querySelectorAll('add-to-cart');
+const btnSelect = document.querySelectorAll('.add-to-cart');
 btnSelect.forEach((element)=>{
 element.addEventListener("click",(event)=>{
-  const product = event.target.parentElement;
-const qytTotal = document.querySelector('quantity-total-cart');
+const product = event.target.parentElement;
+const qytTotal = document.querySelector('.quantity-total-cart');
 ++qytTotal.innerText;
+const emptyCart = document.querySelector('.empty-cart');
+  emptyCart.style.display = "none"; 
 const idP= product.id;
 const imgP=product.querySelector("img").src;
-const titleP=product.querySelector('t-product').innerHTML;
-const priceP=product.querySelector('p-product').innerHTML;
-const addItem = document.querySelector("#item-product1-${idP}");
+const titleP=product.querySelector('.t-product').innerHTML;
+const priceP=product.querySelector('.p-product').innerHTML;
+const addItem = document.querySelector(`#item-product1-${idP}`);
 
 // ADD Item to ShopCart
 if(addItem == null){
@@ -34,23 +36,23 @@ if(addItem == null){
   document.querySelector('.items').innerHTML += item;
 }else{
 const addQtyItem = document.querySelector('.qtyItem');
-++addItem.addQtyItem.innerText;
+++addQtyItem.innerText.addItem;
 }
 
 // Delete Item from ShopCart
-const deleteBtn = document.querySelectorAll('deleteItem');
+const deleteBtn = document.querySelectorAll('.deleteItem');
 deleteBtn.forEach((element)=>{
 element.addEventListener( 'click' , (e)=>{
-const deletEvent = e.target.parentElement;
-qytTotal.innerText = qytTotal.innerText - addQtyItem.innerText;
-deleteBtn.remove();
-})
-})
+const li = e.target.parentElement;
+const qtyItem = li.querySelector('.qtyItem');
+qytTotal.innerText = qytTotal.innerText - qtyItem.innerText;
+li.remove();
 
-if(addItem == null){
-  document.querySelector('.empty-cart').style = block; 
-}else{
-  document.querySelector('.empty-cart').style = none; 
+if(qytTotal.innerText == 0){
+  emptyCart.querySelector('.empty-cart').style = "block";
 }
-})
-})
+});
+});
+
+});
+});
