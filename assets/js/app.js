@@ -41,6 +41,7 @@ function createItemCart(product2) {
 
 
 const btnSelect = document.querySelectorAll('.add-to-cart');
+
 btnSelect.forEach((element) => {
   element.addEventListener("click", (event) => {
 
@@ -59,28 +60,33 @@ btnSelect.forEach((element) => {
     // ADD Item to ShopCart
     if (addItem == null) {
       document.querySelector('.items').innerHTML += createItemCart(item);
+
+      // Delete Item from ShopCart
+      const deleteBtn = document.querySelectorAll('.delete-item');
+      deleteBtn.forEach((element) => {
+        element.addEventListener('click', (e) => {
+          const li = e.target.parentElement;
+          const qtyItem = li.querySelector(".quantity-item");
+  
+  
+          const qytTotal = document.querySelector('.quantity-total-cart');
+          qytTotal.innerText = qytTotal.innerText - qtyItem.innerText
+  
+          if (qytTotal.innerText == 0) {
+            emptyCart.style.display = "block";
+          }
+          li.remove();
+        });
+      });
+
+
     } else {
       const qtyItem = addItem.querySelector('.quantity-item');
       ++qtyItem.innerText;// qtyItem.innerText = qtyItem.innerText + 1
     }
 
-    // Delete Item from ShopCart
-    const deleteBtn = document.querySelectorAll('.delete-item');
-    deleteBtn.forEach((element) => {
-      element.addEventListener('click', (e) => {
-        const li = e.target.parentElement;
-        const qtyItem = li.querySelector(".quantity-item");
-
-
-        const qytTotal = document.querySelector('.quantity-total-cart');
-        qytTotal.innerText = qytTotal.innerText - qtyItem.innerText
-
-        if (qytTotal.innerText == 0) {
-          emptyCart.style.display = "block";
-        }
-        li.remove();
-      });
-    });
+    
+    
 
   });
 });
