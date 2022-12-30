@@ -17,7 +17,7 @@ h4 {
 body {
   margin: 0;
   background: #eeeeee;
-  direction: rtl;
+  direction: ltr;
 }
 a {
   text-decoration: none;
@@ -94,10 +94,27 @@ header {
   font-size: 20pt;
 }
 /* //////// cart /////////// */
-.cart {
+.wishCart {
+  position: relative;
+}
+.shopCart {
   position: relative;
 }
 .quantity-total-cart {
+  background: red;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  color: white;
+  font-size: 9pt;
+  /* padding: 1px 3px ; */
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  left: -6px;
+}
+
+.quantity-total-wish {
   background: red;
   width: 15px;
   height: 15px;
@@ -119,9 +136,12 @@ header {
   padding: 10px;
   top: 30px;
   left: -125px;
+  /* display: none; */
+}
+.shopCart:hover .cart-list {
   display: block;
 }
-.cart:hover .cart-list {
+.wishCart:hover .cart-list {
   display: block;
 }
 .cart-list ul {
@@ -143,6 +163,43 @@ header {
   width: 30px;
   height: 30px;
 }
+
+/* //////////////wish-list///////////////// */
+.wish-list {
+  background: #eeeeee;
+  position: absolute;
+  font-size: 9pt;
+  width: 250px;
+  padding: 10px;
+  top: 30px;
+  left: -125px;
+  display: none;
+}
+.shopCart:hover .wish-list {
+  display: block;
+}
+.wishCart:hover .wish-list {
+  display: block;
+}
+.wish-list ul {
+  margin: 0;
+  padding: 0;
+}
+.wish-list li {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.wish-list a {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}
+.wish-list img {
+  width: 30px;
+  height: 30px;
+}
 .properties-cart {
   padding: 5px 0;
 }
@@ -157,6 +214,32 @@ header {
   color: red;
   padding: 5px;
   cursor: pointer;
+}
+
+/* ////////////////button check out */
+
+.pay{
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.pay:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }
 
 
@@ -290,6 +373,17 @@ main {
   cursor: pointer;
   border-radius: 10px;
   border: 1px solid #575757;
+  font-size: 11pt;
+}
+.add-to-wish {
+  padding: 10px;
+  color: white;
+  background: green;
+  margin: auto;
+  display: block;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
   font-size: 11pt;
 }
 .fa-star{
