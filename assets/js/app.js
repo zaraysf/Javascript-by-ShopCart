@@ -39,6 +39,15 @@ function createItemCart(product2) {
   return itemCart;
 }
 
+function totalPrice(priceItem){
+  const totalPrice = document.querySelector('.total-price');
+  // const btnP = document.querySelectorALL('.add-to-cart');
+  // const unitP = document.querySelector('.item-price');
+
+  return (totalPrice.innerText = Number(totalPrice.innerText) + Number(priceItem) );
+ 
+}
+
 
 const btnSelect = document.querySelectorAll('.add-to-cart');
 
@@ -52,6 +61,7 @@ btnSelect.forEach((element) => {
 
     const product = event.target.parentElement;
     const item = getProductInfo(product);
+    totalPrice(item.priceP);
 
 
     const addItem = document.querySelector(`#item-${item.idP}`);
@@ -85,8 +95,8 @@ btnSelect.forEach((element) => {
       ++qtyItem.innerText;// qtyItem.innerText = qtyItem.innerText + 1
     }
 
-    
-    
+    /////////////////// total price
+   
 
   });
 });

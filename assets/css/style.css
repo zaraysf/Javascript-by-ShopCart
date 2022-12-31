@@ -217,6 +217,13 @@ header {
 }
 
 /* ////////////////button check out */
+.check-out{
+  background-color: #3e3d3d;
+  color:#eeeeee;
+  font-size: medium;
+  padding: 5px;
+  border-radius: 7px;
+}
 
 .pay{
   background-color: #c2fbd7;
@@ -226,7 +233,7 @@ header {
   cursor: pointer;
   display: inline-block;
   font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-  padding: 7px 20px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   transition: all 250ms;
