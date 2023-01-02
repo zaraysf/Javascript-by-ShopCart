@@ -136,7 +136,7 @@ header {
   padding: 10px;
   top: 30px;
   left: -125px;
-  /* display: none; */
+  display: none;
 }
 .shopCart:hover .cart-list {
   display: block;
@@ -173,7 +173,7 @@ header {
   padding: 10px;
   top: 30px;
   left: -125px;
-  display: none;
+  /* display: none; */
 }
 .shopCart:hover .wish-list {
   display: block;

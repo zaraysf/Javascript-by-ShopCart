@@ -53,27 +53,32 @@ element.addEventListener(('click') , (event)=>{
 // ADD Item to WishCart
   if(addItem == null){
     document.querySelector('.wishes').innerHTML += createWishItem (item);
+
+// DELETE Item to WishCart
+    const delBtn = document.querySelectorAll('.delete-item');
+    delBtn.forEach((element)=>{
+      element.addEventListener('click' , (e)=>{
+
+      const li = e.target.parentElement;
+      
+      const qtyTotal = document.querySelector('.quantity-total-wish');
+      const qtyItem = li.querySelector('.quantity-item');
+      qtyTotal.innerText = qtyTotal.innerText - qtyItem.innerText;
+      
+      li.remove();
+  })
+})
+
+
+
   }else{
       const qtyItemWish = document.querySelector('.quantity-item');
       ++qtyItemWish.innerText;
   }
 
-  // DELETE Item to WishCart
+  
 
-const delBtn = document.querySelectorAll('.delete-item');
 
-delBtn.forEach((element)=>{
-  element.addEventListener('click' , (e)=>{
-
-    const li = e.target.parentElement;
-    
-    const qtyTotal = document.querySelector('.quantity-total-wish');
-    const qtyItem = li.querySelector('.quantity-item');
-    qtyTotal.innerText = qtyTotal.innerText - qtyItem.innerText;
-    
-    li.remove();
-    })
-})
 
 
  
